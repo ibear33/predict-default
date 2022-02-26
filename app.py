@@ -19,7 +19,7 @@ def index():
         age = request.form.get("age")
         loan = request.form.get("loan")
         print(income, age, loan)
-        model = load_model("PredictDefault")
+        model = joblib.load("PredictDefault")
         pred = model.predict([[float(income),float(age),float(loan)]])
         print(pred)
         s = "The predicted default score is:" + str(pred)
